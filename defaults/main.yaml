@@ -1,5 +1,6 @@
 ---
 install_kubernetes_node_admin_conf_path: '/etc/kubernetes/admin.conf'
+install_kubernetes_node_calico_conf_path: '/etc/cni/net.d/10-calico.conflist'
 install_kubernetes_node_type: 'master'
 install_kubernetes_node_cni: 'calico'
 install_kubernetes_node_kubernetes_version: '1.21.1'

@@ -6,11 +6,13 @@
     mode: 0640
 
 - name: 'Apply the Calico networking manifest'
-  command:
-    args:
+  ansible.builtin.command:
+    argv:
       - '/usr/bin/kubectl'
       - 'apply'
       - '-f'
       - '{{ install_kubernetes_node_calico_manifest_path }}'
+    creates:
+       '/etc/cni/net.d/calico-kubeconfig'     
   environment:
     KUBECONFIG: '{{ install_kubernetes_node_admin_conf_path }}'

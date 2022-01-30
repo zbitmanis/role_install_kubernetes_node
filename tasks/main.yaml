@@ -1,4 +1,10 @@
 ---
+- name: 'Create an  directory for the installation files'
+  ansible.builtin.file:
+    path: '{{ install_kubernetes_node_kube_install_path  }}'
+    state: directory
+    mode: '0750'
+
 - name: 'Master node tasks'
   include: master.yaml
   when: install_kubernetes_node_type == 'master'
