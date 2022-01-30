@@ -1,0 +1,16 @@
+---
+- name: 'Download the Calico networking manifest'
+  get_url:
+    url: '{{ install_kubernetes_node_calico_manifest_url }}'
+    dest: '{{ install_kubernetes_node_calico_manifest_path }}'
+    mode: 0640
+
+- name: 'Apply the Calico networking manifest'
+  command:
+    args:
+      - '/usr/bin/kubectl'
+      - 'apply'
+      - '-f'
+      - '{{ install_kubernetes_node_calico_manifest_path }}'
+  environment:
+    KUBECONFIG: '{{ install_kubernetes_node_admin_conf_path }}'

@@ -1,0 +1,27 @@
+- name: 'Check that kubernetes admin conf exists'
+  stat:
+    path: '{{ install_kubernetes_node_admin_conf_path }}'
+  register: admin_conf_data
+
+- name: 'Initialize single master node kubernetes cluster'
+  command:
+    args:
+      - 'kubeadm'
+      - '--kubernetes-version'
+      - '{{ install_kubernetes_node_kubernetes_version }}'
+      - '--ignore-preflight-errors'
+      - '{{ install_kubernetes_node_ignore_preflight_errors }}'
+      - '--skip-token-print'
+    creates:  '{{ install_kubernetes_node_admin_conf_path }}'
+
+- name: 'Create a kube directory'
+  ansible.builtin.file:
+    path: '~/.kube'
+    state: directory
+    mode: '0750'
+
+- name: 'Create kubernetes admin conf'
+  ansible.builtin.copy:
+    src: '{{ install_kubernetes_node_admin_conf_path }}'
+    dest: '~/.kube/config'
+    mode: '0640'

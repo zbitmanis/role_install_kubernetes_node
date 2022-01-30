@@ -1,0 +1,8 @@
+---
+- name: 'Master node tasks'
+  include: master.yaml
+  when: install_kubernetes_node_type == 'master'
+
+- name: 'Calico CNI tasks'
+  include: calico.yaml
+  when: install_kubernetes_node_type == 'master' and install_kubernetes_node_cni == 'calico'

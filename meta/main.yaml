@@ -1,0 +1,13 @@
+galaxy_info:
+  role_name: install_kubernetes_node 
+  author: andris zbitkovskis
+  description: role for k8s node preparion for feature insrallation
+
+  license: Apache-2.0
+
+  min_ansible_version: 2.9
+
+  galaxy_tags: [k9s,kubeadmin]
+
+dependencies: []
+  

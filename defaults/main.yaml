@@ -1,0 +1,9 @@
+---
+install_kubernetes_node_admin_conf_path: '/etc/kubernetes/admin.conf'
+install_kubernetes_node_type: 'master'
+install_kubernetes_node_cni: 'calico'
+install_kubernetes_node_kubernetes_version: '1.21.1'
+install_kubernetes_node_ignore_preflight_errors: 'NumCPU'
+install_kubernetes_node_kube_install_path: '/root/kube-install'
+install_kubernetes_node_calico_manifest_path: '{{install_kubernetes_node_kube_install_path}}/calico.yaml'
+install_kubernetes_node_calico_manifest_url: 'https://docs.projectcalico.org/manifests/calico-typha.yaml'
