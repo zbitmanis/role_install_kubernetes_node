@@ -17,4 +17,4 @@ install_kubernetes_node_calico_manifest_url: 'https://docs.projectcalico.org/man
 
 install_kubernetes_node_vpc_cni_manifest_url: 'https://raw.githubusercontent.com/aws/amazon-vpc-cni-k8s/master/config/master/aws-k8s-cni.yaml' 
 install_kubernetes_node_vpc_cni_manifest_folder_path: '{{ role_path }}/files/vpc_cni/'
-install_kubernetes_node_vpc_cni_manifest_path: '{{ install_kubernetes_node_vpc_cni_manifest_folder_path}}'
+install_kubernetes_node_vpc_cni_manifest_path: '{{ install_kubernetes_node_vpc_cni_manifest_folder_path}}/aws-k8s-cni.yaml'
