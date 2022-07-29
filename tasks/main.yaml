@@ -12,3 +12,7 @@
 - name: 'Calico CNI tasks'
   include: calico.yaml
   when: install_kubernetes_node_type == 'master' and install_kubernetes_node_cni == 'calico'
+
+- name: 'VPC CNI tasks'
+  include: vpc_cni.yaml
+  when: install_kubernetes_node_type == 'master' and install_kubernetes_node_cni == 'vpc'

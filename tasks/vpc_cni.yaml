@@ -1,0 +1,24 @@
+---
+- name: ensure that cni download path exists
+  file:
+    state: directory
+    path: {{ install_kubernetes_node_calico_manifest_path }}
+    mode: 0750
+
+- name: 'download VPC CNI manifest'
+  get_url:
+    url: '{{ install_kubernetes_node_vpc_cni_manifest_url }}'
+    dest: '{{ install_kubernetes_node_vpc_cni_manifest_path }}'
+    mode: 0640
+
+- name: 'apply vpc cni networking manifest'
+  ansible.builtin.command:
+    argv:
+      - '/usr/bin/kubectl'
+      - 'apply'
+      - '-f'
+      - '{{ install_kubernetes_node_vpc_cni_manifest_path }}'
+    #creates:
+    #   '/etc/cni/net.d/calico-kubeconfig'     
+  environment:
+    KUBECONFIG: '{{ install_kubernetes_node_admin_conf_path }}'

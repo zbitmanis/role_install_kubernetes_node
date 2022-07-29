@@ -1,7 +1,6 @@
 galaxy_info:
-  role_name: install_kubernetes_node 
   author: andris zbitkovskis
-  description: role for k8s node preparion for feature insrallation
+  description: role for k8s master and worker node installaition using kubeadm
 
   license: Apache-2.0
 
@@ -10,4 +9,3 @@ galaxy_info:
   galaxy_tags: [k9s,kubeadmin]
 
 dependencies: []
-  
