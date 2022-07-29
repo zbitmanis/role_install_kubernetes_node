@@ -11,9 +11,10 @@
   register: admin_conf_data
 
 - name: 'Initialize single master node kubernetes cluster'
-  command:
-    args:
+  ansible.builtin.command:
+    argv:
       - 'kubeadm'
+      - 'init'
       - '--kubernetes-version'
       - '{{ install_kubernetes_node_kubernetes_version }}'
       - '--ignore-preflight-errors'

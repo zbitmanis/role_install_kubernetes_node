@@ -15,5 +15,6 @@ install_kubernetes_node_calico_manifest_url: 'https://docs.projectcalico.org/man
 
 # TODO vpc cni has bunch of files including multus, crearte flexible  CNI deployment 
 
-install_kubernetes_node_vpc_cni_manifest_url: 'https://raw.githubusercontent.com/aws/amazon-vpc-cni-k8s/master/config/master/aws-k8s-cni-cn.yaml'
-install_kubernetes_node_vpc_cni_manifest_path: '{{ role_path }}/files/vpc_cni/aws-k8s-cni-cni.yaml'
+install_kubernetes_node_vpc_cni_manifest_url: 'https://raw.githubusercontent.com/aws/amazon-vpc-cni-k8s/master/config/master/aws-k8s-cni.yaml' 
+install_kubernetes_node_vpc_cni_manifest_folder_path: '{{ role_path }}/files/vpc_cni/'
+install_kubernetes_node_vpc_cni_manifest_path: '{{ install_kubernetes_node_vpc_cni_manifest_folder_path}}'
